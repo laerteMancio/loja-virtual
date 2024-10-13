@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+
+import "./App.css";
+
+//images
+import logoLogin from "../src/assets/icone-login.svg";
+import carrinho from "../src/assets/carrinho.svg";
+import bolsa1 from "../src/assets/produtos/bolsa-1.jpg";
+import bolsa2 from "../src/assets/produtos/bolsa-2.jpg";
+import bolsa3 from "../src/assets/produtos/bolsa-3.jpg";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <form className="grid-container">
+        <header className="header">
+          <div className="container-menus">
+            <div className="menu-principal">
+              <ul>
+                <li className="caixa-logo">Loja virtual</li>
+                <li className="caixa-input-pesquisa">
+                  <input type="text" />
+                </li>
+                <li>
+                  <div className="container-usuario">
+                    <div className="caixa-usuario">
+                      <img src={logoLogin} alt="logo-login" />
+                    </div>
+                    <div className="caixa-entrar-cadastrar">
+                      <span>Entre ou Cadastre-se</span>
+                    </div>
+                  </div>
+                </li>
+                <div className="caixa-carrinho">
+                  <img src={carrinho} alt="carrinho" />
+                </div>
+              </ul>
+            </div>
+            <div className="menu-atalhos">
+              <ul>
+                <li>Home</li>
+                <li>Sobre</li>
+                <li>Produtos</li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <main className="content">
+          <div className="container-apresentacao">
+            <div className="caixas-apresentacao-1">
+              <img src={bolsa1} alt="produto1" />
+            </div>
+
+            <div className="caixas-apresentacao-2">
+              <img src={bolsa2} alt="produto2" />
+            </div>
+            <div className="caixas-apresentacao-3">
+              <img src={bolsa3} alt="produto3" />
+            </div>
+          </div>
+          <div className="container-texto">
+            <span>Estilo na mão, confiança em cada passo</span>
+          </div>
+        </main>
+
+        <footer className="footer">footer</footer>
+      </form>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
