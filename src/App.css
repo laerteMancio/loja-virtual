@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   
@@ -14,62 +13,29 @@ a {
   text-decoration: none;
 }
 
-.sumir{  
+.sumir{
   opacity: 0;
-  
+  transition: 1s ease;
 }
 
-.aparecer{  
+.aparecer {
   opacity: 1;
+  transition: 1s ease;
 }
 
-.sumir-loading{
-  display: none;
-}
-
-.aparecer-loading{
-  display: flex;
-}
-
-.grid-container-sumir {
-  opacity: 0;
-  transform: translateY(20px); /* Efeito de "subir" */
-  transition: opacity 1s ease, transform 1s ease;
-  background-size: 100% 0%; /* Começa com o fundo escondido */
-
-  
-}
-
-.container{
-  width: 98.5vw;
-  height: auto;
-
-}
-
-.grid-container-aparecer {
-  display: grid;  
+.grid-container {
+  display: grid;
   grid-template-areas:
     "header"
     "content"
+    "content1"
     "content2"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr 1fr auto;
+  grid-template-rows: auto;
 
-  height: auto; 
-  width: 100%;
-
-  background-image: url('../src/assets/bg/bg.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%; /* O fundo agora se expande */
-  background-attachment: fixed;
-
-  opacity: 1;
-  transform: translateY(0);
-  
-  transition: opacity 1s ease, transform 1s ease, background-size 1s ease; /* Adicionando transição do fundo */
-
-  
+  height: auto;
+  width: 98.5vw;
 }
 
 .header {
@@ -83,10 +49,7 @@ a {
 
   transition: 1.2s ease;
   opacity: 1;
-
 }
-
-
 
 .container-menus {
   display: flex;
@@ -239,11 +202,7 @@ a {
 
 /* Conteudo*/
 
-.content-sumir {
-  opacity: 0;
-  
-  
-}
+/* inicio content*/
 
 .content {
   grid-area: content;
@@ -257,7 +216,7 @@ a {
   width: 100%;
   max-width: 100%;
 
-  background-image: url("../src/assets/bg/apresentacao-3.jpg");
+  background-image: url("../src/assets/bg/apresentacao-3.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -266,10 +225,7 @@ a {
 
   opacity: 1;
   transition: 0.6s ease;
-  
 }
-
-
 
 .container-apresentacao {
   display: flex;
@@ -278,22 +234,15 @@ a {
   align-items: center;
 
   width: 100%;
-  max-width: 100%;
   height: 100%;
 
   gap: 5px;
-
-
-
 }
 
 .container-apresentacao img {
-  width: 100%;
-  height: 100%;
+  width: 150px;
+  height: 250px;
   object-fit: cover;
-
-  max-width: 100%;
-  max-height: 100%;
 
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
@@ -311,10 +260,7 @@ a {
 
   filter: grayscale(75%);
   transition: filter 0.3s ease;
-
- 
 }
-
 
 .caixas-apresentacao-2 {
   display: flex;
@@ -383,20 +329,292 @@ a {
   font-weight: 400;
 
   color: white;
+
+  gap: 10px;
 }
+
+.palavra-sem-efeito {
+  opacity: 0;
+}
+
+.palavra-com-efeito {
+  opacity: 0;
+  animation: fade 1s forwards;
+}
+
+.palavra-com-efeito:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.palavra-com-efeito:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.palavra-com-efeito:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.palavra-com-efeito:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.palavra-com-efeito:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.palavra-com-efeito:nth-child(6) {
+  animation-delay: 1.5s;
+}
+
+.palavra-com-efeito:nth-child(7) {
+  animation-delay: 1.8s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Fim content*/
+
+/* inicio content 1*/
+
+.content1 {
+  grid-area: content1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 300px;
+
+  font-size: 26px;
+}
+
+/* Fim content 1*/
+
+/* inicio content 2*/
 
 .content2 {
   grid-area: content2;
 
+  height: auto;
+
+  display: grid;
+  grid-template-areas:
+    "cx1 cx2"
+    "cx1 cx3";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.cx1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
-  height: auto;
-  max-width: 100vw;
-  box-sizing: border-box;
+  grid-area: cx1;
+  background-color: lightblue;
+
+  height: 500px;
+  width: 100%;
+
+  filter: grayscale(75%);
+  transition: filter 0.3s ease;
+
+  position: relative;
+  
 }
+
+.cx1:hover{
+  filter: grayscale(0%);
+}
+
+.cx1 input{
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+
+
+  outline: none;
+
+  background-color: #1a1b1c;
+  color: white;
+  font-size: 16px;
+
+  margin-bottom: 10%;
+
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+
+  
+}
+
+
+
+.caixa-img-produto-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 500px;
+  width: 100%;
+
+  background-image: url("../src/assets/destaques/1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.cx2 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  grid-area: cx2;
+  background-color: lightgoldenrodyellow;
+
+  height: 250px;
+  width: 100%;
+
+  filter: grayscale(75%);
+  transition: filter 0.3s ease;
+
+  position: relative;
+}
+
+.cx2:hover{
+  filter: grayscale(0%);
+}
+
+.cx2 input{
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+
+
+  outline: none;
+
+  background-color: #1a1b1c;
+  color: white;
+
+  margin-bottom: 10%;
+
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+
+  
+}
+
+.caixa-img-produto-home-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  height: 100%;
+
+  background-image: url("../src/assets/destaques/2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  
+}
+
+
+.cx3 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  grid-area: cx3;
+  background-color: lightpink;
+
+  height: 250px;
+
+  filter: grayscale(75%);
+  transition: filter 0.3s ease;
+  position: relative;
+}
+
+.cx3:hover{
+  filter: grayscale(0%);
+}
+
+.cx3 input{
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+
+
+  outline: none;
+
+  background-color: #1a1b1c;
+  color: white;
+
+  margin-bottom: 10%;
+
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+
+  
+}
+
+.caixa-img-produto-home-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  height: 100%;
+
+  background-image: url("../src/assets/destaques/3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+
+
+
+
+.dados-produtos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+
+  padding: 10px;
+
+  gap: 20px;
+}
+
+/* Fim content 2*/
+
+/*inicio footer*/
 
 .footer {
   grid-area: footer;

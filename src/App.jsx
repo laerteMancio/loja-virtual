@@ -2,111 +2,179 @@ import "./App.css";
 
 import { useEffect, useState } from "react";
 
-//images
+//imagens header
 import logoLogin from "../src/assets/icone-login.svg";
 import carrinho from "../src/assets/carrinho.svg";
+//imagens apresentacao
 import bolsa1 from "../src/assets/produtos/bolsa-1.jpg";
 import bolsa2 from "../src/assets/produtos/bolsa-2.jpg";
 import bolsa3 from "../src/assets/produtos/bolsa-3.jpg";
 
-//components
-import Loading from "./Loading";
 
 function App() {
-  const [verificaGridContainer, setVerificaGridContainer] = useState(
-    "grid-container-sumir"
-  );
+  const [palavraApresentacao, setPalavraApresentacao] = useState("palavra-sem-efeito");
 
-  const [telaLoading, setTelaLoading] = useState("");
+  const [botaoVejaMais1, setBotaoVejaMais1] = useState('sumir')
+  const [botaoVejaMais2, setBotaoVejaMais2] = useState('sumir')
+  const [botaoVejaMais3, setBotaoVejaMais3] = useState('sumir')
 
-  const [header, setHeader] = useState("header");
-  const [content, setContent] = useState("content");
+  
 
   useEffect(() => {
     const handleLoad = () => {
-      
-      setTelaLoading("aparecer-loading");  
-      
       setTimeout(() => {
-        document.body.style.overflow = "auto"; 
-        setTelaLoading("sumir-loading");
-        setVerificaGridContainer("grid-container-aparecer")
+        document.body.style.overflow = "auto";
+        setPalavraApresentacao("palavra-com-efeito");
       }, 1000);
-    };  
-    
+    };
+
     if (document.readyState === "complete") {
       handleLoad();
     } else {
       window.addEventListener("load", handleLoad);
-    }  
-    
+    }
+
     return () => window.removeEventListener("load", handleLoad);
   }, []);
-  
 
+  
   return (
     <>
-      <div className="container">
-        <div className={telaLoading}>
-          <Loading />
+      <form className="grid-container">
+        {/* Inicio Header */}
+
+        <header className="header">
+          <div className="container-menus">
+            <div className="menu-principal">
+              <ul>
+                <li className="caixa-logo">Loja virtual</li>
+                <li className="caixa-input-pesquisa">
+                  <input name="barra de pesquisa" type="text" />
+                </li>
+                <li>
+                  <div className="container-usuario">
+                    <div className="caixa-usuario">
+                      <img src={logoLogin} alt="logo-login" />
+                    </div>
+                    <div className="caixa-entrar-cadastrar">
+                      <span>Entre ou Cadastre-se</span>
+                    </div>
+                  </div>
+                </li>
+                <div className="caixa-carrinho">
+                  <img src={carrinho} alt="carrinho" />
+                </div>
+              </ul>
+            </div>
+            <div className="menu-atalhos">
+              <ul>
+                <li>Home</li>
+                <li>Sobre</li>
+                <li>Produtos</li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        {/* --------------- Fim Header --------------- */}
+
+        {/* --------------- Inicio Content --------------- */}
+
+        <div className="content">
+          <div className="container-apresentacao">
+            <div className="caixas-apresentacao-1">
+              <img src={bolsa1} alt="produto1" />
+            </div>
+            <div className="caixas-apresentacao-2">
+              <img src={bolsa2} alt="produto2" />
+            </div>
+            <div className="caixas-apresentacao-3">
+              <img src={bolsa3} alt="produto3" />
+            </div>
+
+            <div className="container-texto">
+              <span className={palavraApresentacao}>Estilo</span>
+              <span className={palavraApresentacao}>na</span>
+              <span className={palavraApresentacao}>mão,</span>
+              <span className={palavraApresentacao}>confiança</span>
+              <span className={palavraApresentacao}>em</span>
+              <span className={palavraApresentacao}>cada</span>
+              <span className={palavraApresentacao}>passo!</span>
+            </div>
+          </div>
         </div>
 
-        <form className={verificaGridContainer}>
-          <header className={header}>
-            <div className="container-menus">
-              <div className="menu-principal">
-                <ul>
-                  <li className="caixa-logo">Loja virtual</li>
-                  <li className="caixa-input-pesquisa">
-                    <input name="barra de pesquisa" type="text" />
-                  </li>
-                  <li>
-                    <div className="container-usuario">
-                      <div className="caixa-usuario">
-                        <img src={logoLogin} alt="logo-login" />
-                      </div>
-                      <div className="caixa-entrar-cadastrar">
-                        <span>Entre ou Cadastre-se</span>
-                      </div>
-                    </div>
-                  </li>
-                  <div className="caixa-carrinho">
-                    <img src={carrinho} alt="carrinho" />
-                  </div>
-                </ul>
-              </div>
-              <div className="menu-atalhos">
-                <ul>
-                  <li>Home</li>
-                  <li>Sobre</li>
-                  <li>Produtos</li>
-                </ul>
-              </div>
-            </div>
-          </header>
+        {/* --------------- Fim Content --------------- */}
 
-          <div className={content}>
-            <div className="container-apresentacao">
-              <div className="caixas-apresentacao-1">
-                <img src={bolsa1} alt="produto1" />
-              </div>
-              <div className="caixas-apresentacao-2">
-                <img src={bolsa2} alt="produto2" />
-              </div>
-              <div className="caixas-apresentacao-3">
-                <img src={bolsa3} alt="produto3" />
-              </div>
-              <div className="container-texto">
-                <p>Estilo na mão, confiança em cada passo!</p>
-              </div>
+        {/* --------------- Inicio Content1 --------------- */}
+
+        <div className="content1">
+          <h1>Destaques</h1>
+        </div>
+
+        {/* --------------- Fim Content1 --------------- */}
+
+        {/* --------------- Inicio Content2 --------------- */}
+
+
+
+
+        <div className="content2">
+          <div className="cx1" onMouseEnter={()=>setBotaoVejaMais1('aparecer')} onMouseLeave={()=>setBotaoVejaMais1('sumir')}>
+            <div className="caixa-img-produto-home">              
+              
+            </div>
+            <input className={botaoVejaMais1} type="button" value="Veja mais" />
+            <div className="dados-produtos">
+            <h1>Título</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit,
+                culpa recusandae, porro dolores, sint possimus iusto optio
+                maiores repellendus maxime atque aliquid voluptates veniam
+                ducimus itaque non ea quas vero!
+              </p>
             </div>
           </div>
 
-          <div className="content2">teste</div>
+          <div className="cx2" onMouseEnter={()=>setBotaoVejaMais2('aparecer')} onMouseLeave={()=>setBotaoVejaMais2('sumir')}>
+            <div className="caixa-img-produto-home-1">              
+              <input className={botaoVejaMais2} type="button" value="Veja mais" />
+            </div>
+            <div className="dados-produtos">
+            <h1>Título</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit,
+                culpa recusandae, porro dolores, sint possimus iusto optio
+                maiores repellendus maxime atque aliquid voluptates veniam
+                ducimus itaque non ea quas vero!
+              </p>
+            </div>
+          </div>
 
-          <footer className="footer">footer</footer>
-        </form>
-      </div>
+          <div className="cx3" onMouseEnter={()=>setBotaoVejaMais3('aparecer')} onMouseLeave={()=>setBotaoVejaMais3('sumir')}>
+            <div className="caixa-img-produto-home-2">              
+              <input className={botaoVejaMais3} type="button" value="Veja mais" />
+            </div>
+            <div className="dados-produtos">              
+              <h1>Título</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit,
+                culpa recusandae, porro dolores, sint possimus iusto optio
+                maiores repellendus maxime atque aliquid voluptates veniam
+                ducimus itaque non ea quas vero!
+              </p>
+            </div>
+          </div>
+
+       
+        </div>
+        {/* --------------- Fim Content2 --------------- */}
+
+        {/* --------------- Inicio Footer --------------- */}
+        <footer className="footer">footer</footer>
+
+        {/* --------------- Fim Footer --------------- */}
+      </form>
     </>
   );
 }

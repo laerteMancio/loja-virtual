@@ -1,16 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Isso garante que padding e border não aumentem o tamanho total do elemento */
+
+  
+  
+}
+
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
 
-  min-width: 320px;
-  min-height: 100vh;
-
   font-family: "Grechen Fuemen", cursive;
-  
+
   font-style: normal;
 
   
+ background-color: lightgray;
 
-  overflow: hidden;
+  
+
 }
