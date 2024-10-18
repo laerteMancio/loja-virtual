@@ -2,24 +2,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* Isso garante que padding e border não aumentem o tamanho total do elemento */
-
-  
-  
 }
 
-
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-
+  position: relative;
   font-family: "Grechen Fuemen", cursive;
+}
 
-  font-style: normal;
-
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../src/assets/bg/bd-body.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+  background-position: center;
   
- background-color: lightgray;
-
-  
-
+  z-index: -1; 
 }

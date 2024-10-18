@@ -14,12 +14,18 @@ import bolsa3 from "../src/assets/produtos/bolsa-3.jpg";
 function App() {
   const [palavraApresentacao, setPalavraApresentacao] = useState("palavra-sem-efeito");
 
+  const [content2, setContent2] = useState('content2')
+
+  const [cx1, setCx1] =useState("cx1-exibir")
+  const [cx2, setCx2] =useState("cx2-exibir")
+  const [cx3, setCx3] =useState("cx3-exibir")
+
   const [botaoVejaMais1, setBotaoVejaMais1] = useState('sumir')
   const [botaoVejaMais2, setBotaoVejaMais2] = useState('sumir')
   const [botaoVejaMais3, setBotaoVejaMais3] = useState('sumir')
 
   
-
+// Controle de efeito da frase de apresentação
   useEffect(() => {
     const handleLoad = () => {
       setTimeout(() => {
@@ -35,6 +41,21 @@ function App() {
     }
 
     return () => window.removeEventListener("load", handleLoad);
+  }, []);
+
+  // Controle de efeito de scroll 
+  useEffect(() => {
+    const handleScroll = () => {
+      setContent2("content2-exibir")
+      setCx1("cx1-exibir")
+      setCx2("cx2-exibir")
+      setCx3("cx3-exibir")
+    }; 
+      
+    window.addEventListener("scroll", handleScroll);
+    
+    //limpar
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   
@@ -119,8 +140,8 @@ function App() {
 
 
 
-        <div className="content2">
-          <div className="cx1" onMouseEnter={()=>setBotaoVejaMais1('aparecer')} onMouseLeave={()=>setBotaoVejaMais1('sumir')}>
+        <div className={content2}>
+          <div className={cx1} onMouseEnter={()=>setBotaoVejaMais1('aparecer')} onMouseLeave={()=>setBotaoVejaMais1('sumir')}>
             <div className="caixa-img-produto-home">              
               
             </div>
@@ -136,7 +157,7 @@ function App() {
             </div>
           </div>
 
-          <div className="cx2" onMouseEnter={()=>setBotaoVejaMais2('aparecer')} onMouseLeave={()=>setBotaoVejaMais2('sumir')}>
+          <div className={cx2} onMouseEnter={()=>setBotaoVejaMais2('aparecer')} onMouseLeave={()=>setBotaoVejaMais2('sumir')}>
             <div className="caixa-img-produto-home-1">              
               <input className={botaoVejaMais2} type="button" value="Veja mais" />
             </div>
@@ -151,7 +172,7 @@ function App() {
             </div>
           </div>
 
-          <div className="cx3" onMouseEnter={()=>setBotaoVejaMais3('aparecer')} onMouseLeave={()=>setBotaoVejaMais3('sumir')}>
+          <div className={cx3} onMouseEnter={()=>setBotaoVejaMais3('aparecer')} onMouseLeave={()=>setBotaoVejaMais3('sumir')}>
             <div className="caixa-img-produto-home-2">              
               <input className={botaoVejaMais3} type="button" value="Veja mais" />
             </div>
@@ -164,10 +185,19 @@ function App() {
                 ducimus itaque non ea quas vero!
               </p>
             </div>
-          </div>
+          </div>       
+        </div>
+
+
+        <div className="content3">
+          <h1>Conheça nossos produtos</h1>
+        </div>
+
+
+
+
 
        
-        </div>
         {/* --------------- Fim Content2 --------------- */}
 
         {/* --------------- Inicio Footer --------------- */}
