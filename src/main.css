@@ -1,0 +1,45 @@
+html, body {
+  height: 100%; /* Garante que o body ocupe toda a altura da viewport */
+  margin: 0;    /* Remove qualquer margem padrão */
+  padding: 0;   /* Remove qualquer padding padrão */
+  position: relative;
+  font-family: "Grechen Fuemen", cursive;
+
+  background-image: url("../src/assets/bg/bd-body.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  
+}
+
+
+.main-container {
+    display: grid;    
+    grid-template-areas:
+      
+      "header-grid"
+      "redirects-grid"
+      "footer-grid"      
+      ;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto; 
+      min-height: 100vh; 
+      height: 100vh;
+
+  }
+
+  .header-grid{
+    grid-area: header-grid;
+
+  }
+
+  .redirects-grid{
+    grid-area: redirects-grid;
+  }
+
+  .footer-grid{
+    grid-area: footer-grid;
+    ;
+    
+  }

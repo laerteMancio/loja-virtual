@@ -1,12 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Isso garante que padding e border não aumentem o tamanho total do elemento */
-}
+
 
 body {
   position: relative;
   font-family: "Grechen Fuemen", cursive;
+
+  height: 100%; 
+  margin: 0;
+
+  
+  
 }
 
 body::before {
@@ -16,11 +18,8 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../src/assets/bg/bd-body.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: fixed;
-  background-position: center;
+  
   
   z-index: -1; 
+  
 }
